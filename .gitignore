@@ -1,0 +1,9 @@
+.vs*
+build
+BinOutput
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+_test
+*.old
