@@ -68,7 +68,6 @@ int main(int argc, char* argv[]) {
         User::donot_exchange_ = absl::GetFlag(FLAGS_donot_exchange);
         GameBattle::force_battle_ = absl::GetFlag(FLAGS_enable_force_battle);
         enable_force_update = absl::GetFlag(FLAGS_enable_force_update);
-        enable_gacha = absl::GetFlag(FLAGS_enable_gacha);
         print_date = absl::GetFlag(FLAGS_date);
     }
 
@@ -86,12 +85,7 @@ int main(int argc, char* argv[]) {
         UserManager::Initialization();
         GameBattle::ReadRecoveryTimestamp();
 
-        if (enable_gacha) {
-            GameUser main_account(UserManager::user_list_.back());
-            main_account.GachaTillFull();
-        }
-
-        else if (User::check_shop_) {
+        if (User::check_shop_) {
             Shop::GetInstance();
             User::CheckShopThread();
         }
